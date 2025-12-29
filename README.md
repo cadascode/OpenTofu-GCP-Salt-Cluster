@@ -96,44 +96,6 @@ mysql -u appuser -p$MYSQL_PASSWORD
 - **Versioning**: Data protection and recovery capabilities
 - **Lifecycle Policies**: Automated cost optimization
 
-## 📊 Architecture Overview
-
-```mermaid
-graph TB
-    A[User] -->|SSH/MySQL| B[GCP VM Instance]
-    B -->|Stores Credentials| C[Secret Manager]
-    B -->|Backup Data| D[Cloud Storage]
-    B -->|Runs| E[MySQL 8.0]
-    F[OpenTofu Module] -->|Creates| B
-    F -->|Creates| C
-    F -->|Creates| D
-    G[Startup Script] -->|Installs| E
-    G -->|Configures| H[Automated Backups]
-```
-
-## 🔧 Configuration
-
-### Core Variables
-
-| Variable | Description | Type | Default | Required |
-|----------|-------------|------|---------|----------|
-| `project_id` | GCP Project ID | `string` | - | ✅ |
-| `zone` | GCP Zone | `string` | - | ✅ |
-| `environment` | Environment (dev/staging/prod) | `string` | - | ✅ |
-| `machine_type` | VM machine type | `string` | `e2-small` | ❌ |
-| `boot_disk_size` | Boot disk size (GB) | `number` | `20` | ❌ |
-| `service_account_email` | Service account email | `string` | - | ✅ |
-| `subnetwork` | VPC subnetwork | `string` | - | ✅ |
-
-### Organization Structure
-
-The project uses a standardized naming convention:
-- `ou`: Organizational Unit (e.g., "myorg")
-- `bu`: Business Unit (e.g., "engineering")  
-- `pu`: Product Unit (e.g., "webapp")
-
-Resources are named: `{ou}-{bu}-{pu}-{environment}`
-
 ## 🔐 Permissions
 
 Your service account needs the following IAM roles:
