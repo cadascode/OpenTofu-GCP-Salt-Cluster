@@ -197,36 +197,6 @@ tfsec .
 tofu plan -detailed-exitcode
 ```
 
-### Verify MySQL Installation
-
-```bash
-# Check MySQL service status
-sudo systemctl status mysql
-
-# Verify backup system
-sudo crontab -l
-ls -la /opt/mysql-backup/
-
-# Test backup script
-sudo /opt/mysql-backup/mysql_backup.sh
-```
-
-## 📈 Cost Optimization
-
-### Resource Sizing Guidelines
-
-| Environment | Machine Type | Disk Size | Monthly Cost (Approx.) |
-|-------------|--------------|-----------|------------------------|
-| Development | `e2-micro` | 20 GB | $10-15 |
-| Staging | `e2-small` | 30 GB | $20-30 |
-| Production | `e2-medium` | 50 GB | $40-60 |
-
-### Cost-Saving Features
-- **Preemptible VMs**: Available for non-critical environments
-- **Committed Use Discounts**: For long-running workloads
-- **Storage Lifecycle**: Automatic transition to cheaper storage classes
-
-
 ## 📄 License
 
 This project is licensed under the MIT License
