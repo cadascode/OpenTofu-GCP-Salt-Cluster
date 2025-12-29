@@ -176,12 +176,6 @@ tofu apply -var="environment=prod"
 ```bash
 # Test OpenTofu configuration
 tofu validate
-
-# Security scanning (using tfsec)
-tfsec .
-
-# Plan validation
-tofu plan -detailed-exitcode
 ```
 
 ## 📄 License
