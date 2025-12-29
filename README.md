@@ -171,17 +171,6 @@ tofu workspace new prod
 tofu apply -var="environment=prod"
 ```
 
-### Custom Backup Configuration
-
-The backup system can be customized by modifying the startup script:
-
-```bash
-# Custom backup schedule (edit crontab in startup_script.sh)
-# Current: Daily at 2:00 AM UTC
-# Example: Every 6 hours
-0 */6 * * * /opt/mysql-backup/mysql_backup.sh
-```
-
 ## 🧪 Testing
 
 ### Validate Infrastructure
