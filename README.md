@@ -58,7 +58,7 @@ tofu plan
 tofu apply
 ```
 
-### 4. Access Your MySQL Instance
+### 4. Access Instance
 
 ```bash
 # Get VM external IP
@@ -66,12 +66,6 @@ VM_IP=$(tofu output -raw gcp_vm_output | jq -r '.external_ip')
 
 # SSH to the VM
 gcloud compute ssh <instance-name> --zone=<zone>
-
-# Get MySQL password from Secret Manager
-MYSQL_PASSWORD=$(gcloud secrets versions access latest --secret="<secret-name>")
-
-# Connect to MySQL
-mysql -u appuser -p$MYSQL_PASSWORD
 ```
 
 ## 🛡️ Security Features
